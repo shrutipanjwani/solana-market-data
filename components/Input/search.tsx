@@ -3,8 +3,8 @@ import { JSX, SVGProps } from "react";
 
 export default function Search() {
   return (
-    <div className="w-full max-w-sm relative">
-      <SearchIcon className="w-4 h-4 absolute left-2.5 top-2.5 text-gray-500 dark:text-gray-400" />
+    <div className="w-full max-w-xs relative bg-gray-200 rounded-lg">
+      <SearchIcon className="w-4 h-4 absolute left-2.5 top-3 text-gray-500 dark:text-gray-400" />
       <Input type="search" placeholder="Search" className="pl-8" />
     </div>
   );
