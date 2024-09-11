@@ -14,22 +14,23 @@ const SevenDayChartClient: React.FC<SevenDayChartProps> = ({ data, color }) => {
 
   useEffect(() => {
     import("recharts").then((mod) => {
-      const { ResponsiveContainer, AreaChart, Area } = mod;
+      const { ResponsiveContainer, LineChart, Line, YAxis } = mod;
       setChart(
         () =>
           ({ data, color }: { data: { value: number }[]; color: string }) =>
             (
               <ResponsiveContainer width="100%" height={40}>
-                <AreaChart data={data}>
-                  <Area
-                    type="monotone"
+                <LineChart data={data}>
+                  <YAxis domain={["dataMin", "dataMax"]} hide />
+                  <Line
+                    type="linear"
                     dataKey="value"
                     stroke={color}
-                    fill={color}
-                    fillOpacity={0.2}
                     strokeWidth={2}
+                    dot={false}
+                    isAnimationActive={false}
                   />
-                </AreaChart>
+                </LineChart>
               </ResponsiveContainer>
             )
       );
@@ -40,7 +41,7 @@ const SevenDayChartClient: React.FC<SevenDayChartProps> = ({ data, color }) => {
     // Return a placeholder while the chart is loading
     return (
       <div
-        style={{ width: "100%", height: "40px", backgroundColor: "#f0f0f0" }}
+        style={{ width: "100%", height: "40px", backgroundColor: "#2D3748" }}
       />
     );
   }

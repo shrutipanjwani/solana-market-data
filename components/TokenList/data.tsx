@@ -30,31 +30,36 @@ export interface TokensList {
 
 const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
   return (
-    <div className="overflow-x-auto">
-      <Table className="w-screen">
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[50px]">#</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead className="text-right">Price</TableHead>
-            <TableHead className="text-right">1h %</TableHead>
-            <TableHead className="text-right">24h %</TableHead>
-            <TableHead className="text-right">7d %</TableHead>
-            <TableHead className="text-right">Market Cap</TableHead>
-            <TableHead className="text-right">Volume(24h)</TableHead>
-            <TableHead className="text-right">Circulating Supply</TableHead>
-            <TableHead className="w-[150px]">Last 7 Days</TableHead>
+    <div className="w-full">
+      <Table>
+        <TableHeader className="h-[50px]">
+          <TableRow className="rounded-full bg-[#151515]">
+            <TableHead className="w-[50px] rounded-l-full"></TableHead>
+            <TableHead className="text-left text-gray-300">#</TableHead>
+            <TableHead className="text-left text-gray-300">Token</TableHead>
+            <TableHead className="text-right text-gray-300">Price</TableHead>
+            <TableHead className="text-right text-gray-300">1h</TableHead>
+            <TableHead className="text-right text-gray-300">24h</TableHead>
+            <TableHead className="text-right text-gray-300">7d</TableHead>
+            <TableHead className="text-right text-gray-300">
+              Market Cap
+            </TableHead>
+            <TableHead className="text-right text-gray-300">Volume</TableHead>
+            <TableHead className="text-right text-gray-300">
+              Total Supply
+            </TableHead>
+            <TableHead className="w-[150px] text-center text-gray-300 rounded-r-full">
+              7d History
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {data.map((coin) => (
-            <TableRow key={coin.id}>
-              <TableCell className="font-medium">
-                <div className="flex items-center">
-                  <Star className="w-4 h-4 mr-2 text-gray-400 cursor-pointer" />
-                  {coin.id}
-                </div>
+            <TableRow key={coin.id} className="border-b border-gray-900">
+              <TableCell className="w-[50px]">
+                <Star className="w-4 h-4 text-gray-500 cursor-pointer hover:text-yellow-500" />
               </TableCell>
+              <TableCell>{coin.id}</TableCell>
               <TableCell>
                 <div className="flex items-center">
                   <Image
@@ -73,21 +78,21 @@ const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
               </TableCell>
               <TableCell
                 className={`text-right ${
-                  coin.change1h >= 0 ? "text-green-600" : "text-red-600"
+                  coin.change1h >= 0 ? "text-green-500" : "text-red-500"
                 }`}
               >
                 {coin.change1h.toFixed(2)}%
               </TableCell>
               <TableCell
                 className={`text-right ${
-                  coin.change24h >= 0 ? "text-green-600" : "text-red-600"
+                  coin.change24h >= 0 ? "text-green-500" : "text-red-500"
                 }`}
               >
                 {coin.change24h.toFixed(2)}%
               </TableCell>
               <TableCell
                 className={`text-right ${
-                  coin.change7d >= 0 ? "text-green-600" : "text-red-600"
+                  coin.change7d >= 0 ? "text-green-500" : "text-red-500"
                 }`}
               >
                 {coin.change7d.toFixed(2)}%
@@ -104,11 +109,7 @@ const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
               <TableCell>
                 <SevenDayChart
                   data={coin.history7d}
-                  color={
-                    coin.change7d >= 0
-                      ? "hsl(var(--chart-1))"
-                      : "hsl(var(--chart-2))"
-                  }
+                  color={coin.change7d >= 0 ? "#95cc2f" : "#dc3737"}
                 />
               </TableCell>
             </TableRow>
