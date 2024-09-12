@@ -4,7 +4,7 @@ import CryptoFilterBar from "./filter";
 
 const TokenList = () => {
   return (
-    <div className="w-full mx-auto py-8 px-4">
+    <div className="w-full mx-auto py-4 px-4">
       <CryptoFilterBar />
       <CryptoTable data={tokensList} />
     </div>

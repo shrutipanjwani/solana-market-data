@@ -10,7 +10,6 @@ const Header = () => {
         <span className="text-green-600">1.13%</span> increase over the last
         day.
       </p>
-      <br />
     </div>
   );
 };

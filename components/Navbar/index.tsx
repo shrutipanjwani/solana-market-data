@@ -88,7 +88,7 @@ const MainNavbar = () => (
   <div className="flex justify-between items-center py-3 px-6 bg-primary">
     <Link href="/" className="flex items-center space-x-2">
       <div className="w-8 h-8 bg-[#CFE731] rounded-full"></div>
-      <span className="font-medium text-lg text-white">SolanaMarketCap</span>
+      {/* <span className="font-medium text-lg text-white">SolanaMarketCap</span> */}
     </Link>
 
     <NavigationMenu>
