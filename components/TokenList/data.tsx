@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Table,
@@ -10,6 +12,7 @@ import {
 import { Star } from "lucide-react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 
 const SevenDayChart = dynamic(() => import("./chart"), { ssr: false });
 
@@ -29,6 +32,8 @@ export interface TokensList {
 }
 
 const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
+  const router = useRouter();
+
   return (
     <div className="w-full">
       <Table>
@@ -55,7 +60,11 @@ const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
         </TableHeader>
         <TableBody>
           {data.map((coin) => (
-            <TableRow key={coin.id} className="border-b border-gray-900">
+            <TableRow
+              onClick={() => router.push(`/tokens/${coin.name.toLowerCase()}`)}
+              key={coin.id}
+              className="border-b border-gray-900 cursor-pointer"
+            >
               <TableCell className="w-[50px]">
                 <Star className="w-4 h-4 text-gray-500 cursor-pointer hover:text-yellow-500" />
               </TableCell>
@@ -68,6 +77,7 @@ const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
                     width={24}
                     height={24}
                     className="mr-2 rounded-full"
+                    unoptimized
                   />
                   <span className="font-medium">{coin.name}</span>
                   <span className="ml-2 text-gray-500">{coin.symbol}</span>

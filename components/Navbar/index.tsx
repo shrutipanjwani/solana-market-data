@@ -7,9 +7,8 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  // navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-// import Search from "@/components/Input/search";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,43 +18,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "../ui/button";
-import { Menu } from "lucide-react";
+// import { Button } from "../ui/button";
+// import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
-
-// const TopStatsBar = () => (
-//   <div className="text-xs py-2 px-4 flex flex-wrap justify-between items-center">
-//     <div className="flex space-x-4">
-//       <span>
-//         Tokens: <span className="text-blue-600">2.4M+</span>
-//       </span>
-//       <span>
-//         Exchanges: <span className="text-blue-600">790</span>
-//       </span>
-//       <span>
-//         Market Cap: $1.99T <span className="text-blue-600">+3.36%</span>
-//       </span>
-//       <span>
-//         24h Vol: $66.06B <span className="text-blue-600">+66.52%</span>
-//       </span>
-//     </div>
-//     <div className="flex space-x-4">
-//       <DropdownMenu>
-//         <DropdownMenuTrigger className="outline-none">
-//           <Avatar>
-//             <AvatarImage src="" alt="avatar" />
-//             <AvatarFallback>A</AvatarFallback>
-//           </Avatar>
-//         </DropdownMenuTrigger>
-//         <DropdownMenuContent className="mr-2">
-//           <DropdownMenuLabel>My Account</DropdownMenuLabel>
-//           <DropdownMenuSeparator />
-//           <DropdownMenuItem>Profile</DropdownMenuItem>
-//         </DropdownMenuContent>
-//       </DropdownMenu>
-//     </div>
-//   </div>
-// );
 
 const NavItem = ({
   href,
@@ -114,25 +79,23 @@ const MainNavbar = () => (
         >
           <DropdownMenuLabel>Alisiya Ken</DropdownMenuLabel>
           <DropdownMenuSeparator className="bg-gray-900" />
-          <DropdownMenuItem className="focus:bg-gray-700">
+          <DropdownMenuItem className="focus:bg-[#000000] focus:text-white">
             Portfolio
           </DropdownMenuItem>
-          <DropdownMenuItem className="focus:bg-gray-700">
+          <DropdownMenuItem className="focus:bg-[#000000] focus:text-white">
             Log out
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Button variant="ghost" size="icon" className="lg:hidden text-white">
+      {/* <Button variant="ghost" size="icon" className="lg:hidden text-white">
         <Menu className="h-5 w-5" />
-      </Button>
+      </Button> */}
     </div>
   </div>
 );
 
 const Navbar = () => (
   <nav className="w-full">
-    {/* <TopStatsBar /> */}
-
     <MainNavbar />
   </nav>
 );

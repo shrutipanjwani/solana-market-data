@@ -7,8 +7,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import Search from "../Input/search";
 
-const CryptoFilterBar: React.FC = () => {
+interface CryptoFilterBarProps {
+  onSearch: (query: string) => void;
+  onRowsChange: (rows: string) => void;
+}
+
+const CryptoFilterBar: React.FC<CryptoFilterBarProps> = ({
+  onSearch,
+  onRowsChange,
+}) => {
   return (
     <div className="w-full p-4 rounded-lg mb-2 flex justify-between items-center">
       <div className="flex items-center space-x-4">
@@ -17,12 +26,13 @@ const CryptoFilterBar: React.FC = () => {
           className="text-sm font-medium text-white transition-colors px-4 py-2 rounded-full flex items-center border border-gray-800"
         >
           <span className="w-1.5 h-1.5 bg-[#CFE731] rounded-full mr-2" />
-          All crypto
+          All tokens
         </Button>
       </div>
       <div className="flex items-center space-x-4">
+        <Search onSearch={onSearch} />
         <span className="text-gray-400">Rows</span>
-        <Select defaultValue="100">
+        <Select onValueChange={onRowsChange} defaultValue="100">
           <SelectTrigger className="w-[70px] bg-[#151515] rounded-full border-none text-white">
             <SelectValue />
           </SelectTrigger>
