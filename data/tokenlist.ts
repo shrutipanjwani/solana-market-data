@@ -1,4 +1,35 @@
-import { TokensList } from "@/components/TokenList/data";
+export interface TokenData {
+  id: number;
+  name: string;
+  symbol: string;
+  logo: string;
+  price: number;
+  change1h: number;
+  change24h: number;
+  change7d: number;
+  marketCap: number;
+  volume24h: number;
+  circulatingSupply: number;
+  history7d: { value: number }[];
+  tokenAccountAddress: string;
+  maxSupply?: number;
+  fullyDilutedMarketCap?: number;
+}
+
+export interface TokensList {
+  id: number;
+  name: string;
+  symbol: string;
+  logo: string;
+  price: number;
+  change1h: number;
+  change24h: number;
+  change7d: number;
+  marketCap: number;
+  volume24h: number;
+  circulatingSupply: number;
+  history7d: { value: number }[];
+}
 
 const tokensList: TokensList[] = [
   {

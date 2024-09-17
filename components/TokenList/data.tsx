@@ -13,23 +13,9 @@ import { Star } from "lucide-react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
+import { TokensList } from "@/data/tokenlist";
 
 const SevenDayChart = dynamic(() => import("./chart"), { ssr: false });
-
-export interface TokensList {
-  id: number;
-  name: string;
-  symbol: string;
-  logo: string;
-  price: number;
-  change1h: number;
-  change24h: number;
-  change7d: number;
-  marketCap: number;
-  volume24h: number;
-  circulatingSupply: number;
-  history7d: { value: number }[];
-}
 
 const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
   const router = useRouter();
