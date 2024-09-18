@@ -11,6 +11,8 @@ import Image from "next/image";
 
 import { TokenData } from "@/data/tokenlist";
 import NetworkInfo from "./networkInfo";
+import MetricRow from "./metricRow";
+import ChartView from "./chartView";
 
 interface TokenPageProps {
   params: {
@@ -161,11 +163,11 @@ const TokenPage: React.FC<TokenPageProps> = ({ params, tokenData }) => {
 
           {/* Right Panel (Chart) */}
           <div className="w-full">
-            {/* TODO: Implement chart component */}
             <Card className="h-full bg-background border-gray-800">
-              <CardContent className="p-6">
-                <p>Chart will be implemented here</p>
-              </CardContent>
+              <ChartView
+                symbol={tokenData.ticker}
+                provider={tokenData.provider}
+              />
             </Card>
           </div>
         </div>
@@ -173,29 +175,6 @@ const TokenPage: React.FC<TokenPageProps> = ({ params, tokenData }) => {
     </div>
   );
 };
-
-const MetricRow: React.FC<{
-  label: string;
-  value: string;
-  change?: number;
-  rank?: number;
-  verified?: boolean;
-}> = ({ label, value, change, rank }) => (
-  <div className="flex justify-between items-center">
-    <span className="text-gray-400 text-sm">{label}</span>
-    <div className="text-right text-xs">
-      <span className="font-semibold">{value}</span>
-      {change !== undefined && (
-        <span
-          className={`ml-2 ${change >= 0 ? "text-green-500" : "text-red-500"}`}
-        >
-          {change >= 0 ? "▲" : "▼"} {Math.abs(change).toFixed(2)}%
-        </span>
-      )}
-      {rank && <span className="ml-2 text-gray-500">#{rank}</span>}
-    </div>
-  </div>
-);
 
 const formatNumber = (num: number): string => {
   return num.toLocaleString("en-US", { maximumFractionDigits: 0 });

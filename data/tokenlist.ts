@@ -2,6 +2,8 @@ export interface TokenData {
   id: number;
   name: string;
   symbol: string;
+  provider: string;
+  ticker: string;
   logo: string;
   price: number;
   change1h: number;
@@ -18,6 +20,8 @@ export interface TokensList {
   id: number;
   name: string;
   symbol: string;
+  provider: string;
+  ticker: string;
   logo: string;
   price: number;
   change1h: number;
@@ -35,6 +39,8 @@ const tokensList: TokensList[] = [
     id: 1,
     name: "Solana",
     symbol: "SOL",
+    provider: "CRYPTOCAP",
+    ticker: "SOL",
     logo: "/solana-icon.png",
     price: 135.99,
     change1h: -0.36,
@@ -58,6 +64,8 @@ const tokensList: TokensList[] = [
     id: 2,
     name: "USDC",
     symbol: "USDC",
+    provider: "CRYPTOCAP",
+    ticker: "USDC",
     logo: "/usdc-icon.png",
     price: 1,
     change1h: -0.14,
@@ -81,6 +89,8 @@ const tokensList: TokensList[] = [
     id: 3,
     name: "Tether",
     symbol: "USDT",
+    provider: "CRYPTOCAP",
+    ticker: "USDT",
     logo: "/usdt-icon.png",
     price: 0.9999,
     change1h: -0.01,
@@ -104,6 +114,8 @@ const tokensList: TokensList[] = [
     id: 4,
     name: "Jupiter Perps LP",
     symbol: "JLP",
+    provider: "PYTH",
+    ticker: "JLPUSD",
     logo: "/jlp-icon.png",
     price: 3.14,
     change1h: -0.22,
@@ -127,6 +139,8 @@ const tokensList: TokensList[] = [
     id: 5,
     name: "Jupiter",
     symbol: "JUP",
+    provider: "BINANCE",
+    ticker: "JUPUSDT",
     logo: "/jup-icon.png",
     price: 0.74,
     change1h: -0.67,
