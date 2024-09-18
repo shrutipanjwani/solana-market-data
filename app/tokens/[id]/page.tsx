@@ -10,21 +10,25 @@ interface TokenPageProps {
   };
 }
 
+const generateSlug = (name: string): string => {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+};
+
 const TokenDetails: React.FC<TokenPageProps> = ({ params }) => {
   const tokenData = tokensList.find(
-    (token) => token.name.toLowerCase() === params.id.toLowerCase()
+    (token) => generateSlug(token.name) === params.id
   );
 
   if (!tokenData) {
     notFound();
   }
-  // Prepare the data in the format expected by TokenPage
+
   const formattedTokenData = {
     ...tokenData,
     priceChange: tokenData.change24h,
-    tokenAccountAddress: "So11111111111111111111111111111111111111111", // Example address, replace with actual data
-    maxSupply: Infinity,
-    fullyDilutedMarketCap: tokenData.marketCap, // Assuming it's the same as market cap, adjust if you have the correct data
   };
 
   return (

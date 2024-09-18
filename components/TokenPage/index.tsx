@@ -31,7 +31,7 @@ const TokenPage: React.FC<TokenPageProps> = ({ params, tokenData }) => {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center">
                     <Image
-                      src="/solana-icon.png"
+                      src={tokenData.logo}
                       alt={tokenData.name}
                       width={32}
                       height={32}

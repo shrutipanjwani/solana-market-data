@@ -12,8 +12,6 @@ export interface TokenData {
   circulatingSupply: number;
   history7d: { value: number }[];
   tokenAccountAddress: string;
-  maxSupply?: number;
-  fullyDilutedMarketCap?: number;
 }
 
 export interface TokensList {
@@ -29,6 +27,7 @@ export interface TokensList {
   volume24h: number;
   circulatingSupply: number;
   history7d: { value: number }[];
+  tokenAccountAddress: string;
 }
 
 const tokensList: TokensList[] = [
@@ -53,6 +52,7 @@ const tokensList: TokensList[] = [
       { value: 58000 },
       { value: 57508 },
     ],
+    tokenAccountAddress: "So11111111111111111111111111111111111111111",
   },
   {
     id: 2,
@@ -75,6 +75,7 @@ const tokensList: TokensList[] = [
       { value: 2350 },
       { value: 2361 },
     ],
+    tokenAccountAddress: "So11111111111111111111111111111111111111111",
   },
   {
     id: 3,
@@ -97,6 +98,7 @@ const tokensList: TokensList[] = [
       { value: 0.9997 },
       { value: 0.9999 },
     ],
+    tokenAccountAddress: "So11111111111111111111111111111111111111111",
   },
   {
     id: 4,
@@ -119,6 +121,7 @@ const tokensList: TokensList[] = [
       { value: 520 },
       { value: 519 },
     ],
+    tokenAccountAddress: "So11111111111111111111111111111111111111111",
   },
   {
     id: 5,
@@ -141,6 +144,7 @@ const tokensList: TokensList[] = [
       { value: 137 },
       { value: 136 },
     ],
+    tokenAccountAddress: "So11111111111111111111111111111111111111111",
   },
 ];
 

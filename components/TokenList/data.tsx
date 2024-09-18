@@ -20,6 +20,13 @@ const SevenDayChart = dynamic(() => import("./chart"), { ssr: false });
 const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
   const router = useRouter();
 
+  const generateSlug = (name: string): string => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "");
+  };
+
   return (
     <div className="w-full">
       <Table>
@@ -47,7 +54,7 @@ const CryptoTable: React.FC<{ data: TokensList[] }> = ({ data }) => {
         <TableBody>
           {data.map((coin) => (
             <TableRow
-              onClick={() => router.push(`/tokens/${coin.name.toLowerCase()}`)}
+              onClick={() => router.push(`/tokens/${generateSlug(coin.name)}`)}
               key={coin.id}
               className="border-b border-gray-900 cursor-pointer"
             >
