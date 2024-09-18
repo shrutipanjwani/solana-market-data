@@ -13,6 +13,7 @@ import { TokenData } from "@/data/tokenlist";
 import NetworkInfo from "./networkInfo";
 import MetricRow from "./metricRow";
 import ChartView from "./chartView";
+import MarketsTable from "./markets";
 
 interface TokenPageProps {
   params: {
@@ -171,6 +172,7 @@ const TokenPage: React.FC<TokenPageProps> = ({ params, tokenData }) => {
             </Card>
           </div>
         </div>
+        <MarketsTable />
       </div>
     </div>
   );
