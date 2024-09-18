@@ -61,13 +61,7 @@ const exchangeData: ExchangeData[] = [
   },
 ];
 
-const tabs = [
-  "Spot",
-  "Derivatives",
-  "DEX (spot)",
-  "DEX (derivatives)",
-  "Lending",
-];
+const tabs = ["Spot"];
 
 const ExchangesPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Spot");
@@ -113,25 +107,12 @@ const ExchangesPage: React.FC = () => {
               <TableHead className="text-left text-gray-300">
                 Exchange
               </TableHead>
-              <TableHead className="text-right text-gray-300">
+              <TableHead className="text-left text-gray-300">
                 Trading volume(24h)
               </TableHead>
-              <TableHead className="text-right text-gray-300">
-                Avg. Liquidity
-              </TableHead>
-              <TableHead className="text-right text-gray-300">
-                Weekly Visits
-              </TableHead>
-              <TableHead className="text-right text-gray-300">
-                # Markets
-              </TableHead>
-              <TableHead className="text-right text-gray-300">
-                # Coins
-              </TableHead>
-              <TableHead className="text-center text-gray-300">
-                Fiat Supported
-              </TableHead>
-              <TableHead className="w-[150px] text-center text-gray-300 rounded-r-full">
+              <TableHead className="text-left text-gray-300">Markets</TableHead>
+              <TableHead className="text-left text-gray-300">Coins</TableHead>
+              <TableHead className="w-[180px] text-center text-gray-300 rounded-r-full">
                 Volume Graph (7d)
               </TableHead>
             </TableRow>
@@ -152,20 +133,11 @@ const ExchangesPage: React.FC = () => {
                     {exchange.name}
                   </div>
                 </TableCell>
-                <TableCell className="text-right">
+                <TableCell className="text-left">
                   ${exchange.tradingVolume24h.toLocaleString()}
                 </TableCell>
-                <TableCell className="text-right">
-                  {exchange.avgLiquidity}
-                </TableCell>
-                <TableCell className="text-right">
-                  {exchange.weeklyVisits.toLocaleString()}
-                </TableCell>
-                <TableCell className="text-right">{exchange.markets}</TableCell>
-                <TableCell className="text-right">{exchange.coins}</TableCell>
-                <TableCell className="text-center max-w-xs">
-                  {exchange.fiatSupported}
-                </TableCell>
+                <TableCell className="text-left">{exchange.markets}</TableCell>
+                <TableCell className="text-left">{exchange.coins}</TableCell>
                 <TableCell>
                   <ExchangeVolumeChart
                     data={exchange.volumeHistory}
