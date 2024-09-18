@@ -26,9 +26,9 @@ interface MarketData {
 const marketData: MarketData[] = [
   {
     exchange: "Phoenix",
-    logo: "/phoenix-logo.png",
+    logo: "/favicon.png",
     pair: "SOL/USDT",
-    price: 54577.49,
+    price: 132.99,
     depthPlus: 26826373,
     depthMinus: 21858348,
     volume24h: 739504296,
@@ -38,9 +38,9 @@ const marketData: MarketData[] = [
   },
   {
     exchange: "OpenBook",
-    logo: "/openbook-logo.png",
+    logo: "/favicon.png",
     pair: "SOL/USDC",
-    price: 54585.86,
+    price: 132.99,
     depthPlus: 5774733,
     depthMinus: 5584918,
     volume24h: 929778555,
@@ -56,18 +56,34 @@ const MarketsTable: React.FC = () => {
       <h1 className="text-xl font-bold mb-4">Solana Markets</h1>
       <div className="overflow-x-auto">
         <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[50px]">#</TableHead>
-              <TableHead>Exchange</TableHead>
-              <TableHead>Pair</TableHead>
-              <TableHead className="text-right">Price</TableHead>
-              <TableHead className="text-right">+2% Depth</TableHead>
-              <TableHead className="text-right">-2% Depth</TableHead>
-              <TableHead className="text-right">Volume (24h)</TableHead>
-              <TableHead className="text-right">Volume %</TableHead>
-              <TableHead>Confidence</TableHead>
-              <TableHead className="text-right">Liquidity score</TableHead>
+          <TableHeader className="h-[50px]">
+            <TableRow className="rounded-full bg-[#151515]">
+              <TableHead className="w-[50px] text-gray-300 text-left rounded-l-full">
+                #
+              </TableHead>
+              <TableHead className="text-left text-gray-300">
+                Exchange
+              </TableHead>
+              <TableHead className="text-left text-gray-300">Pair</TableHead>
+              <TableHead className="text-center text-gray-300">Price</TableHead>
+              <TableHead className="text-right text-gray-300">
+                +2% Depth
+              </TableHead>
+              <TableHead className="text-right text-gray-300">
+                -2% Depth
+              </TableHead>
+              <TableHead className="text-right text-gray-300">
+                Volume (24h)
+              </TableHead>
+              <TableHead className="text-right text-gray-300">
+                Volume %
+              </TableHead>
+              <TableHead className="text-right text-gray-300">
+                Confidence
+              </TableHead>
+              <TableHead className="text-center text-gray-300 rounded-r-full">
+                Liquidity score
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -100,7 +116,7 @@ const MarketsTable: React.FC = () => {
                 <TableCell className="text-right">
                   {data.volumePercent.toFixed(2)}%
                 </TableCell>
-                <TableCell>
+                <TableCell className="text-right">
                   <Badge
                     variant={
                       data.confidence === "High" ? "default" : "secondary"
@@ -109,7 +125,7 @@ const MarketsTable: React.FC = () => {
                     {data.confidence}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-right">
+                <TableCell className="text-center">
                   {data.liquidityScore}
                 </TableCell>
               </TableRow>
