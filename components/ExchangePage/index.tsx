@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import ExchangeVolumeChart from "./volumeChart";
+import { useRouter } from "next/navigation";
 
 // Define types for our data
 interface ExchangeData {
@@ -66,6 +67,8 @@ const tabs = ["Spot"];
 const ExchangesPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState("Spot");
 
+  const router = useRouter();
+
   return (
     <div className="w-full mx-auto pt-6 pb-4 px-6 bg-background text-foreground">
       <h1 className="text-2xl font-bold mb-2">
@@ -119,7 +122,13 @@ const ExchangesPage: React.FC = () => {
           </TableHeader>
           <TableBody>
             {exchangeData.map((exchange) => (
-              <TableRow key={exchange.id}>
+              <TableRow
+                key={exchange.id}
+                onClick={() =>
+                  router.push(`/exchanges/${exchange.name.toLowerCase()}`)
+                }
+                className="cursor-pointer"
+              >
                 <TableCell>{exchange.id}</TableCell>
                 <TableCell className="font-medium">
                   <div className="flex items-center">

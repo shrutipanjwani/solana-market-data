@@ -78,11 +78,8 @@ const MarketsTable: React.FC = () => {
               <TableHead className="text-right text-gray-300">
                 Volume %
               </TableHead>
-              <TableHead className="text-right text-gray-300">
-                Confidence
-              </TableHead>
               <TableHead className="text-center text-gray-300 rounded-r-full">
-                Liquidity score
+                Confidence
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -116,7 +113,7 @@ const MarketsTable: React.FC = () => {
                 <TableCell className="text-right">
                   {data.volumePercent.toFixed(2)}%
                 </TableCell>
-                <TableCell className="text-right">
+                <TableCell className="text-center">
                   <Badge
                     variant={
                       data.confidence === "High" ? "default" : "secondary"
@@ -124,9 +121,6 @@ const MarketsTable: React.FC = () => {
                   >
                     {data.confidence}
                   </Badge>
-                </TableCell>
-                <TableCell className="text-center">
-                  {data.liquidityScore}
                 </TableCell>
               </TableRow>
             ))}
