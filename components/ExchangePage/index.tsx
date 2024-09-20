@@ -13,54 +13,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import ExchangeVolumeChart from "./volumeChart";
 import { useRouter } from "next/navigation";
-
-// Define types for our data
-interface ExchangeData {
-  id: number;
-  name: string;
-  logo: string;
-  tradingVolume24h: number;
-  avgLiquidity: number;
-  weeklyVisits: number;
-  markets: number;
-  coins: number;
-  fiatSupported: string;
-  volumeHistory: number[];
-}
-
-// Sample data (replace with actual data later)
-const exchangeData: ExchangeData[] = [
-  {
-    id: 1,
-    name: "Phoenix",
-    logo: "/favicon.png",
-    tradingVolume24h: 12978441947,
-    avgLiquidity: 879,
-    weeklyVisits: 10403969,
-    markets: 1653,
-    coins: 423,
-    fiatSupported: "EUR, GBP, BRL and +8 more",
-    volumeHistory: [
-      10000000000, 11000000000, 12000000000, 11500000000, 12500000000,
-      13000000000, 12978441947,
-    ],
-  },
-  {
-    id: 2,
-    name: "Openbook",
-    logo: "/favicon.png",
-    tradingVolume24h: 12978441947,
-    avgLiquidity: 879,
-    weeklyVisits: 10403969,
-    markets: 1653,
-    coins: 423,
-    fiatSupported: "EUR, GBP, and +8 more",
-    volumeHistory: [
-      10000000000, 11000000000, 12000000000, 11500000000, 12500000000,
-      13000000000, 12978441947,
-    ],
-  },
-];
+import { marketData } from "@/data/markets";
 
 const tabs = ["Spot"];
 
@@ -121,7 +74,7 @@ const ExchangesPage: React.FC = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {exchangeData.map((exchange) => (
+            {marketData.map((exchange) => (
               <TableRow
                 key={exchange.id}
                 onClick={() =>

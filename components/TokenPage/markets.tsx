@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Table,
@@ -9,48 +11,11 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-
-interface MarketData {
-  exchange: string;
-  logo: string;
-  pair: string;
-  price: number;
-  depthPlus: number;
-  depthMinus: number;
-  volume24h: number;
-  volumePercent: number;
-  confidence: "High" | "Moderate" | "Low";
-  liquidityScore: number;
-}
-
-const marketData: MarketData[] = [
-  {
-    exchange: "Phoenix",
-    logo: "/favicon.png",
-    pair: "SOL/USDT",
-    price: 132.99,
-    depthPlus: 26826373,
-    depthMinus: 21858348,
-    volume24h: 739504296,
-    volumePercent: 4.56,
-    confidence: "High",
-    liquidityScore: 1183,
-  },
-  {
-    exchange: "OpenBook",
-    logo: "/favicon.png",
-    pair: "SOL/USDC",
-    price: 132.99,
-    depthPlus: 5774733,
-    depthMinus: 5584918,
-    volume24h: 929778555,
-    volumePercent: 5.73,
-    confidence: "High",
-    liquidityScore: 948,
-  },
-];
+import { marketData } from "@/data/markets";
+import { useRouter } from "next/navigation";
 
 const MarketsTable: React.FC = () => {
+  const router = useRouter();
   return (
     <div className="p-4 mt-6 bg-background text-foreground">
       <h1 className="text-xl font-bold mb-4">Solana Markets</h1>
@@ -84,46 +49,54 @@ const MarketsTable: React.FC = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {marketData.map((data, index) => (
-              <TableRow key={data.exchange}>
-                <TableCell className="font-medium">{index + 1}</TableCell>
-                <TableCell className="flex items-center">
-                  <Image
-                    src={data.logo}
-                    alt={data.exchange}
-                    width={24}
-                    height={24}
-                    className="mr-2"
-                  />
-                  {data.exchange}
-                </TableCell>
-                <TableCell className="text-blue-400">{data.pair}</TableCell>
-                <TableCell className="text-right">
-                  ${data.price.toLocaleString()}
-                </TableCell>
-                <TableCell className="text-right">
-                  ${data.depthPlus.toLocaleString()}
-                </TableCell>
-                <TableCell className="text-right">
-                  ${data.depthMinus.toLocaleString()}
-                </TableCell>
-                <TableCell className="text-right">
-                  ${data.volume24h.toLocaleString()}
-                </TableCell>
-                <TableCell className="text-right">
-                  {data.volumePercent.toFixed(2)}%
-                </TableCell>
-                <TableCell className="text-center">
-                  <Badge
-                    variant={
-                      data.confidence === "High" ? "default" : "secondary"
-                    }
-                  >
-                    {data.confidence}
-                  </Badge>
-                </TableCell>
-              </TableRow>
-            ))}
+            {marketData.flatMap((exchange) =>
+              exchange.pairs.map((pair, pairIndex) => (
+                <TableRow
+                  key={`${exchange.id}-${pairIndex}`}
+                  onClick={() =>
+                    router.push(`/exchanges/${exchange.name.toLowerCase()}`)
+                  }
+                  className="cursor-pointer"
+                >
+                  <TableCell className="font-medium">{exchange.id}</TableCell>
+                  <TableCell className="flex items-center">
+                    <Image
+                      src={exchange.logo}
+                      alt={exchange.name}
+                      width={24}
+                      height={24}
+                      className="mr-2"
+                    />
+                    {exchange.name}
+                  </TableCell>
+                  <TableCell className="text-blue-400">{pair.pair}</TableCell>
+                  <TableCell className="text-right">
+                    ${pair.price.toLocaleString()}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    ${pair.depthPlus.toLocaleString()}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    ${pair.depthMinus.toLocaleString()}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    ${pair.volume24h.toLocaleString()}
+                  </TableCell>
+                  <TableCell className="text-right">
+                    {pair.volumePercent.toFixed(2)}%
+                  </TableCell>
+                  <TableCell className="text-center">
+                    <Badge
+                      variant={
+                        exchange.confidence === "High" ? "default" : "secondary"
+                      }
+                    >
+                      {exchange.confidence}
+                    </Badge>
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       </div>
