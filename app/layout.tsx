@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const metropolisRegular = localFont({
+  src: "./fonts/Metropolis-Regular.otf",
+  variable: "--font-metropolis-regular",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+const metropolisBold = localFont({
+  src: "./fonts/Metropolis-Bold.otf",
+  variable: "--font-metropolis-bold",
   weight: "100 900",
 });
 
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${metropolisRegular.variable} ${metropolisBold.variable} antialiased`}
       >
         {children}
       </body>
