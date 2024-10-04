@@ -67,5 +67,4 @@ const TradingViewWidget: React.FC<TradingViewWidgetProps> = ({
     </div>
   );
 };
-
 export default memo(TradingViewWidget);

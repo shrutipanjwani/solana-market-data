@@ -60,6 +60,7 @@ const MainNavbar = () => (
       <NavigationMenuList className="space-x-2">
         <NavItem href="/">Tokens</NavItem>
         <NavItem href="/exchanges">Exchanges</NavItem>
+        <NavItem href="/marketplace">Marketplace</NavItem>
       </NavigationMenuList>
     </NavigationMenu>
 

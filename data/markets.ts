@@ -9,6 +9,7 @@ export interface MarketData {
     depthMinus: number;
     volume24h: number;
     volumePercent: number;
+    href: string;
   }[];
   tradingVolume24h: number;
   spotTradingVolume: string;
@@ -34,6 +35,7 @@ export const marketData: MarketData[] = [
         depthMinus: 21858348,
         volume24h: 739504296,
         volumePercent: 4.56,
+        href: "",
       },
     ],
     tradingVolume24h: 12978441947,
@@ -61,6 +63,7 @@ export const marketData: MarketData[] = [
         depthMinus: 5584918,
         volume24h: 929778555,
         volumePercent: 5.73,
+        href: "",
       },
     ],
     tradingVolume24h: 12978441947,
