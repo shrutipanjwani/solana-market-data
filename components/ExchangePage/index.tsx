@@ -45,7 +45,7 @@ const ExchangesPage: React.FC = () => {
             onClick={() => setActiveTab(tab)}
           >
             {activeTab === tab && (
-              <span className="w-1.5 h-1.5 bg-[#CFE731] rounded-full mr-2" />
+              <span className="w-1.5 h-1.5 bg-[#38B2C4] rounded-full mr-2" />
             )}
             {tab}
           </Button>

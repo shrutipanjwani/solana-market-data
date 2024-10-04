@@ -21,6 +21,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // import { Button } from "../ui/button";
 // import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const NavItem = ({
   href,
@@ -41,7 +42,7 @@ const NavItem = ({
         `}
       >
         {isActive && (
-          <span className="w-1.5 h-1.5 bg-[#CFE731] rounded-full mr-2" />
+          <span className="w-1.5 h-1.5 bg-[#38B2C4] rounded-full mr-2" />
         )}
         {children}
       </NavigationMenuLink>
@@ -52,8 +53,15 @@ const NavItem = ({
 const MainNavbar = () => (
   <div className="flex justify-between items-center py-3 px-6 bg-primary">
     <Link href="/" className="flex items-center space-x-2">
-      <div className="w-8 h-8 bg-[#CFE731] rounded-full"></div>
-      {/* <span className="font-medium text-lg text-white">SolanaMarketCap</span> */}
+      <Image
+        src="/logo.png"
+        alt="DeFi Depths"
+        unoptimized
+        width={100}
+        height={100}
+        className="w-8 h-8"
+      />
+      <span className="font-medium text-lg text-white">DeFi Depths</span>
     </Link>
 
     <NavigationMenu>

@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   title: "DeFi Depths",
   description: "DeFi Depths",
   icons: {
-    icon: "/favicon.png",
+    icon: "/logo.png",
   },
   openGraph: {
     title: "DeFi Depths",
     description: "DeFi Depths",
     url: "/",
-    // images: "/images/preview.png",
+    images: "/preview.png",
     siteName: "DeFi Depths",
     locale: "en_US",
     type: "website",

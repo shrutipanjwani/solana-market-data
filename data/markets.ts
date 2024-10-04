@@ -26,7 +26,7 @@ export const marketData: MarketData[] = [
   {
     id: 1,
     name: "Phoenix",
-    logo: "/favicon.png",
+    logo: "/temp.png",
     pairs: [
       {
         pair: "SOL/USDT",
@@ -54,7 +54,7 @@ export const marketData: MarketData[] = [
   {
     id: 2,
     name: "OpenBook",
-    logo: "/favicon.png",
+    logo: "/temp.png",
     pairs: [
       {
         pair: "SOL/USDC",

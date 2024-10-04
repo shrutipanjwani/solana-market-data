@@ -25,7 +25,7 @@ const CryptoFilterBar: React.FC<CryptoFilterBarProps> = ({
           variant="secondary"
           className="text-sm font-medium text-white transition-colors px-4 py-2 rounded-full flex items-center border border-gray-800"
         >
-          <span className="w-1.5 h-1.5 bg-[#CFE731] rounded-full mr-2" />
+          <span className="w-1.5 h-1.5 bg-[#38B2C4] rounded-full mr-2" />
           All tokens
         </Button>
       </div>
