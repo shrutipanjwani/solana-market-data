@@ -28,7 +28,7 @@ const TokenList = () => {
   const displayedTokens = filteredTokens.slice(0, parseInt(rowsToShow));
 
   return (
-    <div className="w-full mx-auto py-4 px-4">
+    <div className="w-full mx-auto py-4 px-16">
       <CryptoFilterBar
         onSearch={handleSearch}
         onRowsChange={handleRowsChange}

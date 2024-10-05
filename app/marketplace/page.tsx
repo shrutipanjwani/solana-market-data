@@ -10,16 +10,25 @@ import {
 } from "@/components/ui/table";
 import Navbar from "@/components/Navbar";
 import { marketData } from "@/data/markets";
+import { Button } from "@/components/ui/button";
 
 const Marketplace = () => {
   return (
     <>
       <Navbar />
       <Card className="bg-background border-none">
-        <CardContent className="p-6">
-          <h2 className="text-xl font-semibold text-gray-100 mb-4">
-            Markets Data
-          </h2>
+        <CardContent className="py-6 px-28">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-gray-100 mb-4">
+              Market Data
+            </h2>
+            <Button
+              size="lg"
+              className="bg-[#38b2c4] text-gray-900 border-gray-900 hover:text-gray-200 hover:bg-[#151515] rounded-full"
+            >
+              Connect Wallet
+            </Button>
+          </div>
           <div className="overflow-x-auto">
             <Table>
               <TableHeader className="h-[50px]">
@@ -30,9 +39,10 @@ const Marketplace = () => {
                   <TableHead className="text-left text-gray-300">
                     PAIRS
                   </TableHead>
-                  <TableHead className="text-left text-gray-300 rounded-r-full">
+                  <TableHead className="text-left text-gray-300">
                     PRICE
                   </TableHead>
+                  <TableHead className="text-right text-gray-300 rounded-r-full"></TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -56,6 +66,14 @@ const Marketplace = () => {
                           <span className="text-gray-300">$</span>
                           {pair.price.toFixed(2)}
                         </span>
+                      </TableCell>
+                      <TableCell className="">
+                        <Button
+                          size="sm"
+                          className="bg-[#38b2c4] text-gray-900 px-6 border-gray-900 hover:text-gray-200 hover:bg-[#151515] rounded-full"
+                        >
+                          Download
+                        </Button>
                       </TableCell>
                     </TableRow>
                   ))

@@ -69,7 +69,7 @@ const ExchangeDetails: React.FC<{ exchangeData: MarketData }> = ({
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6 mb-8">
-            <div>
+            {/* <div>
               <h2 className="text-xl font-semibold text-gray-100 mb-4">
                 About {exchangeData.name}
               </h2>
@@ -77,7 +77,7 @@ const ExchangeDetails: React.FC<{ exchangeData: MarketData }> = ({
                 What Is {exchangeData.name}?
               </h3>
               <p className="text-gray-200">{exchangeData.description}</p>
-            </div>
+            </div> */}
             <div className="grid grid-cols-2 gap-6 mb-8 text-center">
               <div className="border border-gray-800 rounded-full px-6 py-2 bg-[#151515] h-[80px]">
                 <h2 className="text-md text-gray-300 mb-1">
@@ -99,7 +99,7 @@ const ExchangeDetails: React.FC<{ exchangeData: MarketData }> = ({
       </Card>
 
       <Card className="bg-background border-none">
-        <CardContent className="p-6">
+        <CardContent className="py-6 px-16">
           <h2 className="text-xl font-semibold text-gray-100 mb-4">Markets</h2>
           <div className="overflow-x-auto">
             <Table>

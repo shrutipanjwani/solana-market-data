@@ -23,16 +23,7 @@ const ExchangesPage: React.FC = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full mx-auto pt-6 pb-4 px-6 bg-background text-foreground">
-      <h1 className="text-2xl font-bold mb-2">
-        Top Solana Cryptocurrency Spot Exchanges
-      </h1>
-      <p className="text-gray-400 text-sm mb-6">
-        DeFi Depths ranks and scores exchanges based on traffic, liquidity,
-        trading volumes, and confidence in the legitimacy of trading volumes
-        reported.
-      </p>
-
+    <div className="w-full mx-auto pt-6 pb-4 px-20 bg-background text-foreground">
       {/* Tabs */}
       <div className="flex space-x-2 mb-6 overflow-x-auto">
         {tabs.map((tab) => (
