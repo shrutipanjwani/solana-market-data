@@ -79,11 +79,13 @@ const ExchangesPage: React.FC = () => {
                     <Image
                       src={exchange.logo}
                       alt={exchange.name}
-                      width={24}
-                      height={24}
+                      style={{
+                        height: "1.4em", // Logo height is 40% larger than the text
+                        width: "auto",   // Width scales proportionally
+                      }}
                       className="mr-2"
                     />
-                    {exchange.name}
+                    <span>{exchange.name}</span>
                   </div>
                 </TableCell>
                 <TableCell className="text-left">

@@ -51,7 +51,8 @@ const NavItem = ({
 };
 
 const MainNavbar = () => (
-  <div className="flex justify-between items-center py-3 px-6 bg-primary">
+  <div className="relative flex justify-between items-center py-3 px-6 bg-primary">
+    {/* Logo Section */}
     <Link href="/" className="flex items-center space-x-2">
       <Image
         src="/logo.png"
@@ -64,22 +65,24 @@ const MainNavbar = () => (
       <span className="font-medium text-lg text-white">DeFi Depths</span>
     </Link>
 
-    <NavigationMenu>
-      <NavigationMenuList className="space-x-2">
-        <NavItem href="/">Tokens</NavItem>
-        <NavItem href="/exchanges">Exchanges</NavItem>
-        <NavItem href="/marketplace">Marketplace</NavItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+    {/* Centered Navigation using absolute positioning */}
+    <div className="absolute left-1/2 transform -translate-x-1/2">
+      <NavigationMenu>
+        <NavigationMenuList className="space-x-4">
+          <NavItem href="/">Tokens</NavItem>
+          <NavItem href="/exchanges">Exchanges</NavItem>
+          <NavItem href="/marketplace">Marketplace</NavItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
 
+    {/* Avatar Section */}
     <div className="flex items-center space-x-4">
       <DropdownMenu>
         <DropdownMenuTrigger className="outline-none">
           <Avatar>
             <AvatarImage src="" alt="avatar" />
-            <AvatarFallback className="bg-[#151515] text-white">
-              A
-            </AvatarFallback>
+            <AvatarFallback className="bg-[#151515] text-white">A</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -96,9 +99,6 @@ const MainNavbar = () => (
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-      {/* <Button variant="ghost" size="icon" className="lg:hidden text-white">
-        <Menu className="h-5 w-5" />
-      </Button> */}
     </div>
   </div>
 );

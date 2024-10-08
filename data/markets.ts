@@ -20,13 +20,14 @@ export interface MarketData {
   confidence: "High" | "Moderate" | "Low";
   website: string;
   description: string;
+  twitterHandle?: string; // Add the twitterHandle field here as an optional property
 }
 
 export const marketData: MarketData[] = [
   {
     id: 1,
     name: "Phoenix",
-    logo: "/temp.png",
+    logo: "/Phoenix_Logo.svg", // Updated logo
     pairs: [
       {
         pair: "SOL/USDT",
@@ -48,13 +49,14 @@ export const marketData: MarketData[] = [
       13000000000, 12978441947,
     ],
     confidence: "High",
-    website: "https://phoenix.com/",
-    description: `Phoenix is a decentralized exchange on the Solana blockchain. It is the world's largest crypto exchange by trading volume, with $76 billion daily trading volume on Binance exchange as of August 2022, and 90 million customers worldwide. The platform has established itself as a trusted member of the crypto space, where users can buy, sell and store their digital assets, as well as access over 350 cryptocurrencies listed and thousands of trading pairs. The Binance ecosystem now comprises of Binance Exchange, Labs, Launchpad, Info, Academy, Research, Trust Wallet, Charity, NFT and more.`,
+    website: "https://www.phoenix.trade", // Updated website
+    description: `Phoenix is a decentralized exchange on the Solana blockchain.`,
+    twitterHandle: "@PhoenixTrade", // Updated Twitter handle
   },
   {
     id: 2,
     name: "OpenBook",
-    logo: "/temp.png",
+    logo: "/Openbook_Logo.svg", // Updated logo
     pairs: [
       {
         pair: "SOL/USDC",
@@ -76,7 +78,8 @@ export const marketData: MarketData[] = [
       13000000000, 12978441947,
     ],
     confidence: "High",
-    website: "https://openbook.com/",
-    description: `Openbook is a decentralized exchange on the Solana blockchain. It is the world's largest crypto exchange by trading volume, with $76 billion daily trading volume on Binance exchange as of August 2022, and 90 million customers worldwide. The platform has established itself as a trusted member of the crypto space, where users can buy, sell and store their digital assets, as well as access over 350 cryptocurrencies listed and thousands of trading pairs. The Binance ecosystem now comprises of Binance Exchange, Labs, Launchpad, Info, Academy, Research, Trust Wallet, Charity, NFT and more.`,
+    website: "https://www.openbook.ag", // Updated website
+    description: `OpenBook is a decentralized exchange on the Solana blockchain.`,
+    twitterHandle: "@openbookdex", // Updated Twitter handle
   },
 ];
