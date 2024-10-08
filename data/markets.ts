@@ -2,6 +2,7 @@ export interface MarketData {
   id: number;
   name: string;
   logo: string;
+  logoOrientation: "horizontal" | "vertical";
   pairs: {
     pair: string;
     price: number;
@@ -20,14 +21,15 @@ export interface MarketData {
   confidence: "High" | "Moderate" | "Low";
   website: string;
   description: string;
-  twitterHandle?: string; // Add the twitterHandle field here as an optional property
+  twitterHandle?: string;
 }
 
 export const marketData: MarketData[] = [
   {
     id: 1,
     name: "Phoenix",
-    logo: "/Phoenix_Logo.svg", // Updated logo
+    logo: "/Phoenix_Logo.svg",
+    logoOrientation: "vertical",
     pairs: [
       {
         pair: "SOL/USDT",
@@ -49,14 +51,15 @@ export const marketData: MarketData[] = [
       13000000000, 12978441947,
     ],
     confidence: "High",
-    website: "https://www.phoenix.trade", // Updated website
+    website: "https://www.phoenix.trade",
     description: `Phoenix is a decentralized exchange on the Solana blockchain.`,
-    twitterHandle: "@PhoenixTrade", // Updated Twitter handle
+    twitterHandle: "@PhoenixTrade", 
   },
   {
     id: 2,
     name: "OpenBook",
-    logo: "/Openbook_Logo.svg", // Updated logo
+    logo: "/Openbook_Logo.svg",
+    logoOrientation: "horizontal",
     pairs: [
       {
         pair: "SOL/USDC",
@@ -78,8 +81,8 @@ export const marketData: MarketData[] = [
       13000000000, 12978441947,
     ],
     confidence: "High",
-    website: "https://www.openbook.ag", // Updated website
+    website: "https://www.openbook.ag",
     description: `OpenBook is a decentralized exchange on the Solana blockchain.`,
-    twitterHandle: "@openbookdex", // Updated Twitter handle
+    twitterHandle: "@openbookdex",
   },
 ];

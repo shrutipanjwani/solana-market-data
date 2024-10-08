@@ -76,16 +76,22 @@ const ExchangesPage: React.FC = () => {
                 <TableCell>{exchange.id}</TableCell>
                 <TableCell className="font-medium">
                   <div className="flex items-center">
-                    <Image
-                      src={exchange.logo}
-                      alt={exchange.name}
-                      style={{
-                        height: "1.4em", // Logo height is 40% larger than the text
-                        width: "auto",   // Width scales proportionally
-                      }}
-                      className="mr-2"
-                    />
-                    <span>{exchange.name}</span>
+                    <div className="flex-shrink-0"> {/* Ensure logo container doesn't shrink */}
+                      <Image
+                        src={exchange.logo}
+                        alt={exchange.name}
+                        width={exchange.logoOrientation === "horizontal" ? 24 : undefined} // Horizontal logos have width 24px
+                        height={exchange.logoOrientation === "vertical" ? 24 : undefined}  // Vertical logos have height 24px
+                        className="mr-2"
+                        style={{
+                          width: exchange.logoOrientation === "horizontal" ? '24px' : 'auto',  // Set width to 24px for horizontal logos
+                          height: exchange.logoOrientation === "vertical" ? '24px' : 'auto',   // Set height to 24px for vertical logos
+                        }}
+                      />
+                    </div>
+                    <div className="ml-2">
+                      {exchange.name}
+                    </div>
                   </div>
                 </TableCell>
                 <TableCell className="text-left">
